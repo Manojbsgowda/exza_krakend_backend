@@ -1,0 +1,17 @@
+{
+  "version": "2",
+  "port": "8080",
+  "serviceName": "",
+  "endpoints": [
+    {
+      "extra_config": {
+        "qos_ratelimit_router": {
+          "strategy": "ip"
+        }
+      },
+      "input_query_strings": [],
+      "input_headers": [],
+      "backend": []
+    }
+  ]
+}

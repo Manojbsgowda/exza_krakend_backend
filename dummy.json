@@ -1,0 +1,36 @@
+{
+  "version": "3",
+  "port": "8080",
+  "serviceName": "krakend",
+  "hostName": "http:jsonplaceholder.com",
+  "endpoints": [
+    {
+      "extra_config": {
+        "qos_ratelimit_router": {
+          "max_rate": "2",
+          "client_max_rate": "3",
+          "strategy": "ip"
+        }
+      },
+      "endpoint": "krack",
+      "method": "POST",
+      "input_query_strings": ["id"],
+      "input_headers": ["application/json"],
+      "concurrent_calls": "5",
+      "backend": [
+        {
+          "extra_config": {
+            "qos_ratelimit_proxy": {
+              "max_rate": "8",
+              "capacity": "9"
+            }
+          },
+          "url_pattern": "/users",
+          "method": "POST",
+          "host": ["https://jsonplaceholder.typicode.com"]
+        }
+      ]
+    }
+  
+  ]
+}
