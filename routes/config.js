@@ -18,7 +18,7 @@ router.post("/create", async (req, res) => {
     }
     var jsonContent = await JSON.stringify(info, null, 2);
 
-    fs.writeFile(`krakend.json`, jsonContent, "utf8", function (err) {
+    fs.writeFile(`krakend.json`, jsonContent, "utf-8", function (err) {
       if (err) {
         console.log("An error occured while writing JSON Object to File.");
         return res.json(err);

@@ -1,17 +1,42 @@
 {
-  "version": "2",
-  "port": "8080",
-  "serviceName": "",
+  "version": 2,
+  "port": 8080,
+  "serviceName": "ggfhh",
   "endpoints": [
     {
+      "endpoint": "vbgbvnb",
+      "method": "GET",
       "extra_config": {
         "qos_ratelimit_router": {
+          "max_rate": null,
+          "client_max_rate": null,
           "strategy": "ip"
         }
       },
-      "input_query_strings": [],
-      "input_headers": [],
-      "backend": []
+      "input_query_strings": [
+        "bvvv",
+        "ghgghhg"
+      ],
+      "input_headers": [
+        ""
+      ],
+      "concurrent_calls": null,
+      "backend": [
+        {
+          "is_collection": true,
+          "url_pattern": "/gvgfgh",
+          "method": "GET",
+          "extra_config": {
+            "qos_ratelimit_proxy": {
+              "max_rate": null,
+              "capacity": null
+            }
+          },
+          "host": [
+            "gfffhgh"
+          ]
+        }
+      ]
     }
   ]
 }

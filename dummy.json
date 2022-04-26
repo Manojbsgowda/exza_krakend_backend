@@ -1,36 +1,88 @@
 {
-  "version": "3",
-  "port": "8080",
-  "serviceName": "krakend",
-  "hostName": "http:jsonplaceholder.com",
+  "version": 2,
+  "port": 8080,
+  "serviceName": "manoj",
   "endpoints": [
     {
+      "endpoint": "/krakend1",
+      "method": "GET",
       "extra_config": {
         "qos_ratelimit_router": {
-          "max_rate": "2",
-          "client_max_rate": "3",
+          "max_rate": 2,
+          "client_max_rate": 3,
           "strategy": "ip"
         }
       },
-      "endpoint": "krack",
-      "method": "POST",
-      "input_query_strings": ["id"],
-      "input_headers": ["application/json"],
-      "concurrent_calls": "5",
+      "input_query_strings": ["id", "userId"],
+      "input_headers": [""],
+      "concurrent_calls": 2,
       "backend": [
         {
+          "url_pattern": "/users",
+          "method": "GET",
           "extra_config": {
             "qos_ratelimit_proxy": {
-              "max_rate": "8",
-              "capacity": "9"
+              "max_rate": 3,
+              "capacity": 4
             }
           },
-          "url_pattern": "/users",
-          "method": "POST",
-          "host": ["https://jsonplaceholder.typicode.com"]
+          "host": ["userId"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/krakend2",
+      "method": "GET",
+      "extra_config": {
+        "qos_ratelimit_router": {
+          "max_rate": 5,
+          "client_max_rate": 1,
+          "strategy": "ip"
+        }
+      },
+      "input_query_strings": ["commentId", "commentIDs"],
+      "input_headers": [""],
+      "concurrent_calls": 3,
+      "backend": [
+        {
+          "url_pattern": "/comments",
+          "method": "GET",
+          "extra_config": {
+            "qos_ratelimit_proxy": {
+              "max_rate": 4,
+              "capacity": 5
+            }
+          },
+          "host": ["id"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/krakend3",
+      "method": "GET",
+      "extra_config": {
+        "qos_ratelimit_router": {
+          "max_rate": null,
+          "client_max_rate": null,
+          "strategy": "ip"
+        }
+      },
+      "input_query_strings": ["oo", "pp"],
+      "input_headers": [""],
+      "concurrent_calls": 4,
+      "backend": [
+        {
+          "url_pattern": "/payment",
+          "method": "GET",
+          "extra_config": {
+            "qos_ratelimit_proxy": {
+              "max_rate": 5,
+              "capacity": 6
+            }
+          },
+          "host": ["id", "userId"]
         }
       ]
     }
-  
   ]
 }

@@ -1,0 +1,45 @@
+array1 = {
+  $schema: "https://www.krakend.io/schema/v3.json",
+  version: 3,
+  extra_config: {},
+  timeout: "3000ms",
+  cache_ttl: "300s",
+  // "endpoints":[
+  //     {
+  //       "endpoint": "kkkkk",
+  //       "method": "GET",
+  //       "extra_config": {
+  //         "qos_ratelimit_router": {
+  //           "max_rate": "2",
+  //           "client_max_rate": "3"
+  //         }
+  //       },
+  //       "input_query_strings": [
+  //         "id",
+  //         "userid"
+  //       ],
+  //       "input_headers": [
+  //         "app/js"
+  //       ],
+  //       "concurrent_calls": "2",
+  //       "backend": [
+  //         {
+  //           "extra_config": {
+  //             "qos_ratelimit_proxy": {
+  //               "max_rate": "6",
+  //               "capacity": "7"
+  //             }
+  //           },
+  //           "url_pattern": "/user",
+  //           "method": "GET",
+  //           "host": [
+  //             "fhvkfv",
+  //             "ygfhj"
+  //           ]
+  //         }
+  //       ],
+  //       "id": "a2c251ca-0b44-4f72-a060-19ae85bfff0e",
+  //       "title1": "/v1/new-endpoint"
+  //     }
+  //   ]
+};
